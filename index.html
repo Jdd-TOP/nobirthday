@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Please don't post Happy birthday in the team channel. Send it to the person instead.">
+<meta property="og:title" content="no birthday">
+<meta property="og:description" content="Please don't post Happy birthday in the team channel. Send it to the person instead.">
+<title>no birthday</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; two chat mockups (the flood vs the fix) carry the argument */
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --ink: #1d2230;
+  --muted: #5d6475;
+  --line: #e2e1dc;
+  --accent: #e5484d;
+  --good: #1f8a5b;
+  --frost: #fdecec;
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #14161d; --surface: #1c1f28; --ink: #ecebe6; --muted: #9aa0ae; --line: #2c303b;
+  --accent: #ff6b6f; --good: #45c08a; --frost: #3a1f23; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #14161d; --surface: #1c1f28; --ink: #ecebe6; --muted: #9aa0ae; --line: #2c303b;
+  --accent: #ff6b6f; --good: #45c08a; --frost: #3a1f23; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body);
+  font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+main { max-width: 680px; margin: 0 auto; padding-block: 56px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.8rem, 9vw, 4.6rem); line-height: 1; margin: 0; letter-spacing: -0.02em; }
+h1 s { text-decoration-color: var(--accent); text-decoration-thickness: 0.12em; }
+h2 { font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; margin: 0 0 12px; text-wrap: balance; }
+p { margin: 0 0 14px; max-width: 65ch; }
+.lede { font-size: 1.25rem; color: var(--muted); margin-top: 18px; }
+.lede strong { color: var(--ink); }
+.label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; display: inline-flex; gap: 8px; align-items: center; }
+.label.bad { color: var(--accent); }
+.label.good { color: var(--good); }
+.chat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.chat-head { padding: 10px 16px; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.msgs { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.msg { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+.av { width: 32px; height: 32px; border-radius: 6px; display: grid; place-items: center; font-weight: 600; font-size: 0.8rem; color: #fff; }
+.who { font-weight: 600; font-size: 0.9rem; }
+.who time { font-weight: 400; color: var(--muted); font-size: 0.78rem; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.txt { font-size: 0.95rem; }
+.more { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); background: var(--frost); padding: 8px 12px; border-radius: 6px; text-align: center; }
+.verdict { margin-top: 14px; color: var(--muted); }
+ul.rules { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+ul.rules li { padding-left: 28px; position: relative; }
+ul.rules li::before { content: "✓"; position: absolute; left: 0; color: var(--good); font-weight: 600; }
+.share { border-top: 1px solid var(--line); padding-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.copyrow { display: flex; gap: 8px; flex-wrap: wrap; }
+.copyrow code { font-family: var(--font-mono); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; flex: 1 1 220px; min-width: 0; overflow-wrap: anywhere; user-select: all; }
+button { font: inherit; font-weight: 600; background: var(--ink); color: var(--bg); border: 0; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+footer { color: var(--muted); font-size: 0.85rem; }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<main>
+  <header>
+    <h1>no <s>birthday</s></h1>
+    <p class="lede">Please don't post <strong>"Happy birthday!"</strong> in the team channel. Send it to the person instead.</p>
+  </header>
+
+  <section>
+    <div class="label bad">✕ Please don't</div>
+    <div class="chat">
+      <div class="chat-head"><span># general · 214 members</span><span>Tuesday</span></div>
+      <div class="msgs">
+        <div class="msg"><div class="av" style="background:#7a5af5">HR</div><div><div class="who">HR Bot<time>09:00</time></div><div class="txt">🎂 Today is Sam's birthday!</div></div></div>
+        <div class="msg"><div class="av" style="background:#d9822b">LM</div><div><div class="who">Léa<time>09:01</time></div><div class="txt">Happy birthday Sam!! 🎉</div></div></div>
+        <div class="msg"><div class="av" style="background:#2f80ed">TK</div><div><div class="who">Tom<time>09:01</time></div><div class="txt">HBD 🥳</div></div></div>
+        <div class="msg"><div class="av" style="background:#27ae60">NR</div><div><div class="who">Nadia<time>09:02</time></div><div class="txt">Happy birthday!!! 🎂🎂</div></div></div>
+        <div class="more">+ 63 more “happy birthday” messages</div>
+        <div class="msg"><div class="av" style="background:#c0392b">AB</div><div><div class="who">Alex<time>09:47</time></div><div class="txt">Hey, did anyone see my question about the deploy? It was right above all of this…</div></div></div>
+      </div>
+    </div>
+    <p class="verdict">Sam gets 67 identical messages. 214 people get 67 notifications. Alex's question is now buried, and nobody will scroll up for it.</p>
+  </section>
+
+  <section>
+    <div class="label good">✓ Do this instead</div>
+    <div class="chat">
+      <div class="chat-head"><span>Direct message · Sam</span><span>Tuesday</span></div>
+      <div class="msgs">
+        <div class="msg"><div class="av" style="background:#d9822b">LM</div><div><div class="who">Léa<time>09:01</time></div><div class="txt">Happy birthday Sam! Thanks again for covering my shift last week. Have a great day 🎉</div></div></div>
+      </div>
+    </div>
+    <p class="verdict">One message, to the person it's for. It reads like it was written for them, because it was.</p>
+  </section>
+
+  <section>
+    <h2>Why it matters</h2>
+    <p>A shared channel is where work questions, incidents and announcements live. Every reply there pings everyone who follows it. One birthday wish costs nothing; sixty of them cost the whole team a few minutes of attention and push real messages out of sight.</p>
+    <p>It also does little for the person celebrating. A wall of "HBD" in a channel feels like a reflex. A short private note feels personal.</p>
+  </section>
+
+  <section>
+    <h2>Simple rules</h2>
+    <ul class="rules">
+      <li><strong>Send a direct message.</strong> Add one personal line if you can.</li>
+      <li><strong>React instead of replying.</strong> If there's an announcement in the channel, a 🎉 reaction says the same thing without notifying anyone.</li>
+      <li><strong>Use a thread.</strong> If your team likes to celebrate together, reply in a thread under the announcement so the channel stays readable.</li>
+      <li><strong>Celebrate in person.</strong> Cake beats emoji, every time.</li>
+    </ul>
+  </section>
+
+  <section class="share">
+    <h2>Share this page</h2>
+    <p>Next time the channel turns into a birthday card, drop this link. Kindly.</p>
+    <div class="copyrow">
+      <code id="link">nobirthday</code>
+      <button id="copy" type="button">Copy link</button>
+    </div>
+  </section>
+
+  <footer>Inspired by the “no hello” idea: say what you mean, where it belongs.</footer>
+</main>
+
+<script>
+(function () {
+  var linkEl = document.getElementById('link');
+  var btn = document.getElementById('copy');
+  try { if (location.href && location.protocol.indexOf('http') === 0) linkEl.textContent = location.href.split('#')[0]; } catch (e) {}
+  btn.addEventListener('click', function () {
+    var text = linkEl.textContent;
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(linkEl);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected — press Ctrl/⌘ + C';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy link'; }, 1800);
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
